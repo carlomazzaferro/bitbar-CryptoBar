@@ -29,9 +29,16 @@ print('Portfolio Value: {:,.2f}'.format(sum([i.dollar_value for i in ss])))
 print('---')
 print 'Market Cap:\t${:,}'.format(int(global_vals['total_market_cap_usd']))
 print('---')
-print('{:<20}{:<20}{:<20}{:<20}'.format('Tickers', 'US$', 'Holdings', 'Tokens'))
+spacing = 22
+# st = ('{:>%i}{:>%i}{:>i%}{:>i%}{:>i%}' % (25,25,25,25,25)).format('Tickers', 'US$', 'Holdings', 'Tokens', '24hr Change')
+
+st_2 = ('{:>%i}{:>%i}{:>%i}{:>%i}{:>%i}' % (tuple([spacing]*5))).format('Tickers', 'US$', 'Holdings', 'Tokens', '24hr Change')
+
+print(st_2)
 for coin in ss:
-    print(coin)
+    # color = 'green' if coin.change_24h > 0 else 'red'
+    # to_print = coin.printing() + '| {:<15.1f} color={}'.format(coin.change_24h, color)
+    print(coin.printing())
 
 # print_data = [i.printing_data() for i in ss]
 # col_width = max(len(word) for row in print_data for word in row) + 2  # padding

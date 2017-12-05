@@ -60,11 +60,37 @@ class Coin(object):
         return [self.ticker + ':','image=' + self.thumbnail, str(self.price_usd), str(self.dollar_value),
                 str(self.n_tokens), self.name, ]
     """
+
+    def printing(self):
+
+        base_spacing = (tuple([12]*5))
+        if len(self.ticker) == 4:
+            spacing = (tuple([8, 9, 10, 11, 11]))
+        if len(self.ticker) == 5:
+            spacing = (tuple([9, 10, 12, 12, 12]))
+        else:
+            spacing = base_spacing
+        # spacing = 17
+        return ('{:>%i}{:>%i.3f}${:>%i.2f}${:>%i}{:>%i}| \
+        href=https://coinmarketcap.com/currencies/{} image={} color={} font={}' % spacing).format(
+            self.ticker + ':',
+            self.price_usd,
+            self.dollar_value,
+            self.n_tokens,
+            self.change_24h,
+            self.name,
+            self.thumbnail,
+         'green' if self.change_24h > 0 else 'red',
+            'menlo',
+        )
+
     def __str__(self):
-        return '{:<20}{:<20}{:<20}{:<20} | href=https://livecoinwatch.com/coins/{} image={:<20}'.format(self.ticker + ':',
+        return '\t{:>15}{:>15}{:>15}{:>15.1f}| href=https://livecoinwatch.com/coins/{} image={}'.format(self.ticker + ':',
                                                                                                       self.price_usd,
                                                                                                       self.dollar_value,
                                                                                                       self.n_tokens,
+                                                                                                  #    self.change_24h,
+                                                                                                  #    'green',
                                                                                                       self.name,
                                                                                                       self.thumbnail)
 
