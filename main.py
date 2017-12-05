@@ -1,14 +1,15 @@
 #!/usr/bin/env python
 # coding=utf-8
 #
-# <bitbar.title>Litecoin Ticker (£1GBP)</bitbar.title>
+# <bitbar.title>Multi-Crypto Tracker and Portfolio Calculator</bitbar.title>
 # <bitbar.version>v1.0</bitbar.version>
-# <bitbar.author>impshum</bitbar.author>
-# <bitbar.author.github>impshum</bitbar.author.github>
-# <bitbar.desc>Displays current Litecoin price for £1 from Coinmarketcap</bitbar.desc>
-# <bitbar.image>https://i.imgur.com/GUaQ8hZ.jpg/bitbar.image>
+# <bitbar.author>carlomazzaferro</bitbar.author>
+# <bitbar.author.github>carlomazzaferro</bitbar.author.github>
+# <bitbar.desc>Displays current price for top 20 and other coins from coinmarketcap, as well as % change, and
+# portfolio value </bitbar.desc>
+# <bitbar.image>https://imgur.com/a/Qidf2>
 #
-# by impshum
+# by carlomazzaferro
 
 
 from cryptobar import utils
