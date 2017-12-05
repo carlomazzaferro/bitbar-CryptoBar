@@ -1,6 +1,17 @@
 #!/usr/bin/env python
+# coding=utf-8
+#
+# <bitbar.title>Litecoin Ticker (£1GBP)</bitbar.title>
+# <bitbar.version>v1.0</bitbar.version>
+# <bitbar.author>impshum</bitbar.author>
+# <bitbar.author.github>impshum</bitbar.author.github>
+# <bitbar.desc>Displays current Litecoin price for £1 from Coinmarketcap</bitbar.desc>
+# <bitbar.image>https://i.imgur.com/GUaQ8hZ.jpg/bitbar.image>
+#
+# by impshum
+
+
 from cryptobar import utils
-import json
 
 
 holdings = utils.grab_holdings()
@@ -8,9 +19,6 @@ global_vals = utils.global_data()
 # eth_data = utils.Coin(' ethereum', holdings['ETH'])
 total_held = 0
 
-
-# print ('---')
-# p
 coins = []
 for coin, holding in holdings.iteritems():
     coin_class = utils.Coin(coin, holding)
@@ -29,19 +37,10 @@ print('Portfolio Value: {:,.2f}'.format(sum([i.dollar_value for i in ss])))
 print('---')
 print 'Market Cap:\t${:,}'.format(int(global_vals['total_market_cap_usd']))
 print('---')
-spacing = 22
-# st = ('{:>%i}{:>%i}{:>i%}{:>i%}{:>i%}' % (25,25,25,25,25)).format('Tickers', 'US$', 'Holdings', 'Tokens', '24hr Change')
 
+spacing = 22
 st_2 = ('{:>%i}{:>%i}{:>%i}{:>%i}{:>%i}' % (tuple([spacing]*5))).format('Tickers', 'US$', 'Holdings', 'Tokens', '24hr Change')
 
 print(st_2)
 for coin in ss:
-    # color = 'green' if coin.change_24h > 0 else 'red'
-    # to_print = coin.printing() + '| {:<15.1f} color={}'.format(coin.change_24h, color)
     print(coin.printing())
-
-# print_data = [i.printing_data() for i in ss]
-# col_width = max(len(word) for row in print_data for word in row) + 2  # padding
-# for row in print_data:
-#     print "".join(word.ljust(col_width) for word in row)
-

@@ -65,12 +65,12 @@ class Coin(object):
 
         base_spacing = (tuple([12]*5))
         if len(self.ticker) == 4:
-            spacing = (tuple([8, 9, 10, 11, 11]))
-        if len(self.ticker) == 5:
+            spacing = (tuple([10, 11, 12, 12, 12]))
+        elif len(self.ticker) == 5:
             spacing = (tuple([9, 10, 12, 12, 12]))
         else:
             spacing = base_spacing
-        # spacing = 17
+
         return ('{:>%i}{:>%i.3f}${:>%i.2f}${:>%i}{:>%i}| \
         href=https://coinmarketcap.com/currencies/{} image={} color={} font={}' % spacing).format(
             self.ticker + ':',
@@ -80,37 +80,6 @@ class Coin(object):
             self.change_24h,
             self.name,
             self.thumbnail,
-         'green' if self.change_24h > 0 else 'red',
+            'green' if self.change_24h > 0 else 'red',
             'menlo',
         )
-
-    def __str__(self):
-        return '\t{:>15}{:>15}{:>15}{:>15.1f}| href=https://livecoinwatch.com/coins/{} image={}'.format(self.ticker + ':',
-                                                                                                      self.price_usd,
-                                                                                                      self.dollar_value,
-                                                                                                      self.n_tokens,
-                                                                                                  #    self.change_24h,
-                                                                                                  #    'green',
-                                                                                                      self.name,
-                                                                                                      self.thumbnail)
-
-        """
-        
-        return 'image={} \t{:.2f}%\t${:,}\t${:,.2f}'.format(
-            # self.thumbnail,
-            float(self.thumbnail),
-            float(self.price_btc),
-            # self.price_eth,
-            float(self.dollar_value),
-            float(self.portfolio_percentage))
-            
-            
-        return '{:s} \t{:.2f}%\t${:,}\t${:,.2f}\t{} | href=https://livecoinwatch.com/coins/{:s} image={}'.format(
-            self.price_usd,
-            self.price_btc,
-            # self.price_eth,
-            self.dollar_value,
-            self.portfolio_percentage,
-            self.name,
-            str(self.thumbnail))
-        """
