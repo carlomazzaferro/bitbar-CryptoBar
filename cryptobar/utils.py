@@ -62,12 +62,14 @@ class Coin(object):
     """
 
     def printing(self):
+        base_spacing = (tuple([10]*5))
 
-        base_spacing = (tuple([12]*5))
-        if len(self.ticker) == 4:
-            spacing = (tuple([10, 11, 12, 12, 12]))
+        if len(self.ticker) == 3:
+            spacing = (tuple([13, 10, 10, 8, 9]))
+        elif len(self.ticker) == 4:
+            spacing = (tuple([11, 9, 10, 8, 9]))
         elif len(self.ticker) == 5:
-            spacing = (tuple([9, 10, 12, 12, 12]))
+            spacing = (tuple([10, 8, 10, 8, 9]))
         else:
             spacing = base_spacing
 

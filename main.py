@@ -26,7 +26,7 @@ for coin, holding in holdings.iteritems():
     coins.append(coin_class)
 
 
-ss = sorted(coins, key=lambda x: x.dollar_value, reverse=True)
+sorted_coin_list = sorted(coins, key=lambda x: x.dollar_value, reverse=True)
 print ('| templateImage={}'.format('iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAb1BMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
                                    'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
                                    'AAAAAAAAAAAAAABt6r1GAAAAJXRSTlMAAQIFBwoODxMmKStXW2BmcH+AiJSfpq+ztbi6zdjc3d7l5ufv+yKSPAAAAJJJRE'
@@ -34,14 +34,13 @@ print ('| templateImage={}'.format('iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9T
                                    '+xKDvDPqBqharYUPND9MAZSd1rwUhlMAyXr1IQ/idAJhf62JFZwFtO5Ka3GhvtC6rWyoexsv+3ak7q0rFo1TYot9qn/Hfe'
                                    'b/AehKCx0AH3FcAAAAAElFTkSuQmCC'))
 print('---')
-print('Portfolio Value: {:,.2f}'.format(sum([i.dollar_value for i in ss])))
+print('Portfolio Value: {:,.2f}'.format(sum([i.dollar_value for i in sorted_coin_list])))
 print('---')
 print 'Market Cap:\t${:,}'.format(int(global_vals['total_market_cap_usd']))
 print('---')
 
-spacing = 22
-st_2 = ('{:>%i}{:>%i}{:>%i}{:>%i}{:>%i}' % (tuple([spacing]*5))).format('Tickers', 'US$', 'Holdings', 'Tokens', '24hr Change')
+spacing = (tuple([9, 20, 17, 12, 14]))
+print(('{:<%i}{:>%i}{:>%i}{:>%i}{:>%i}' % spacing).format('Tickers', 'US$', 'Holdings', 'Tokens', '% 24hr'))
 
-print(st_2)
-for coin in ss:
+for coin in sorted_coin_list:
     print(coin.printing())
