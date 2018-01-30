@@ -30,7 +30,6 @@ def get_from_cmc(coin_name):
     return json.loads(urlopen('https://api.coinmarketcap.com/v1/ticker/%s/' % coin_name).read())[0]
 
 
-# holdings = grab_holdings()
 images = grab_images()
 
 
@@ -49,17 +48,9 @@ class Coin(object):
         self.portfolio_percentage = 0
 
     def get_data(self):
+        if self.name == 'fiat':
+            return {'price_usd': 1, 'price_btc': 0, 'percent_change_24h': 0, 'symbol': 'FIAT'}
         return get_from_cmc(self.name)
-
-    """
-    data = [['a', 'b', 'c'], ['aaaaaaaaaa', 'b', 'c'], ['a', 'bbbbbbbbbb', 'c']]
-    
-        
-    
-    def printing_data(self):
-        return [self.ticker + ':','image=' + self.thumbnail, str(self.price_usd), str(self.dollar_value),
-                str(self.n_tokens), self.name, ]
-    """
 
     def printing(self):
         base_spacing = (tuple([10]*5))
