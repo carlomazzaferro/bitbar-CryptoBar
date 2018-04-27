@@ -36,7 +36,7 @@ print ('| templateImage={}'.format('iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9T
 print('---')
 print('Portfolio Value: {:,.2f}'.format(sum([i.dollar_value for i in sorted_coin_list])))
 print('---')
-print 'Market Cap:\t${:,}'.format(int(global_vals['total_market_cap_usd']))
+print('Market Cap:\t${:,}'.format(int(global_vals['total_market_cap_usd']))
 print('---')
 
 spacing = (tuple([9, 20, 17, 12, 14]))
